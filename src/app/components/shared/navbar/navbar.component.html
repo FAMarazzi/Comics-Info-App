@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" >
+            <img src="assets/img/A-64.png" alt="Bootstrap" width="30" height="24">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- si ponemos a class="nav-link active" ACTIVE REPRESENTA EL ITEM QUE VA
+             A ESTAR MARCADO DE por si-->
+          <li class="nav-item" >
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['home']">Home</a>
+            <!-- [routerLink]="['home']" pone la ruta home cuando se toca-->
+            <!-- routerLinkActive="active" setea el activo cuando navegamos por cada uno 
+                asociandolo con el routerLink-->
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['heroes']">Heroes</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active"> 
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['about']"> About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Action</a></li>
+              <li><a class="dropdown-item">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form  onsubmit="return false" class="d-flex" role="search"> 
+          <!--PROBLEMA QUE TARDÉ HORAS EN RESOLVER. RECORDAR QUE PARA QUE NO REFRESQUE AUTOMATICAMENTE AL PRESIONAR ENTER HAY QUE 
+            CAMBIAR LA PROPIEDAD DEL FORM ON SUBMIT RETURN FALSE EVITA QUE EL FORMULARIO ACTUALICE LA PÁGINA EN EL EVENTO ENTER-->
+          <input  class="form-control" type="search" placeholder="Buscar héroe" (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto aria-label="Search">
+          <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-outline-primary" type="button">Buscar</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>
